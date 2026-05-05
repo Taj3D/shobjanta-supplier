@@ -21,7 +21,8 @@ const FB_PAGE = 'https://www.facebook.com/ShobjantaSupplier';
 const WEBSITE_URL = 'https://shobjanta-supplier.vercel.app';
 
 const PRODUCT_IMG = '/images/product-jar.webp';
-const LOGO_IMG = '/images/logo.png';
+const LOGO_IMG = '/images/logo-header.webp';
+const LOGO_ORIGINAL = '/images/logo.webp';
 const RICE_GRAINS_IMG = '/images/rice-grains.webp';
 
 // ── Reviews ──
@@ -330,15 +331,15 @@ export default function Home() {
       {/* ═══════ 2. HEADER ═══════ */}
       <header className="bg-white shadow-sm sticky top-0 z-40">
         <div className="max-w-5xl mx-auto px-4 py-3 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="relative w-10 h-10 sm:w-12 sm:h-12">
-              <img src={LOGO_IMG} alt="সবজান্তা সাপ্লাইয়ার" className="w-full h-full object-contain rounded-full" draggable={false} />
+          <a href="#" className="flex items-center gap-2 sm:gap-3">
+            <div className="relative h-9 sm:h-11">
+              <img src={LOGO_IMG} alt="সবজান্তা সাপ্লাইয়ার" className="h-full w-auto object-contain" draggable={false} />
             </div>
-            <div>
-              <h1 className="text-base sm:text-lg font-bold text-[#1e293b]">সবজান্তা সাপ্লাইয়ার</h1>
+            <div className="hidden sm:block">
+              <h1 className="text-base sm:text-lg font-bold text-[#1e293b] leading-tight">সবজান্তা সাপ্লাইয়ার</h1>
               <p className="text-[10px] sm:text-xs text-[#64748b]">FinTaxEdgeTV</p>
             </div>
-          </div>
+          </a>
           <div className="flex items-center gap-2 bg-[#dcfce7] text-[#16a34a] px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 9V7a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2m2 4h10a2 2 0 002-2v-6a2 2 0 00-2-2H9a2 2 0 00-2 2v6a2 2 0 002 2zm7-5a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
             ক্যাশ অন ডেলিভারি

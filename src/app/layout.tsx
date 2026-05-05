@@ -11,6 +11,7 @@ const hindSiliguri = Hind_Siliguri({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://shobjanta-supplier.vercel.app"),
   title: "সবজান্তা সাপ্লাইয়ার | পাকিস্তানি বাসমতি চাল - জারে সিল করা",
   description:
     "যশোরে প্রথম জারের বাসমতি! পাকিস্তান থেকে এনে ফুডগ্রেড এয়ারটাইট জারে সিল করা ১০০% লম্বা দানা বাসমতি চাল। ৩ কেজির জার মাত্র ৳১০৫০। ক্যাশ অন ডেলিভারি!",
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
     "বাসমতি রাইস",
   ],
   icons: {
-    icon: "/images/logo.png",
+    icon: "/images/logo-icon.png",
   },
   openGraph: {
     title: "সবজান্তা সাপ্লাইয়ার | পাকিস্তানি বাসমতি চাল",
