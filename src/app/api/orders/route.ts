@@ -1,5 +1,4 @@
 import { NextRequest, NextResponse } from "next/server";
-import { db } from "@/lib/db";
 import { z } from "zod/v4";
 
 // Google Sheets Web App URL (URL-encoded POST, no CORS on server)
@@ -26,25 +25,24 @@ async function sendToGoogleSheets(data: {
   quantity: number;
   total: number;
 }) {
-  try {
-    const params = new URLSearchParams({
-      name: data.name,
-      phone: data.phone,
-      address: data.address,
-      product: "Basmati Rice Jar",
-      quantity: String(data.quantity),
-      total: String(data.total),
-    });
+  const params = new URLSearchParams({
+    name: data.name,
+    phone: data.phone,
+    address: data.address,
+    product: "Basmati Rice Jar",
+    quantity: String(data.quantity),
+    total: String(data.total),
+  });
 
-    await fetch(GOOGLE_SHEETS_URL, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: params,
-      redirect: "follow",
-    });
-  } catch (err) {
-    // Log but don't fail the order — Google Sheets is a secondary store
-    console.error("Google Sheets sync failed:", err);
+  const response = await fetch(GOOGLE_SHEETS_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: params,
+    redirect: "follow",
+  });
+
+  if (!response.ok) {
+    throw new Error(`Google Sheets returned status ${response.status}`);
   }
 }
 
@@ -86,24 +84,26 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Save to local database
-    const order = await db.order.create({
-      data: {
-        name,
-        phone,
-        address,
-        quantity,
-        shipping,
-        total,
-      },
-    });
+    // Primary storage: Google Sheets
+    await sendToGoogleSheets({ name, phone, address, quantity, total });
 
-    // Forward to Google Sheets (non-blocking — won't block the response)
-    sendToGoogleSheets({ name, phone, address, quantity, total });
+    // Optional: Try to save to local database (fails gracefully on Vercel)
+    let orderId: string | undefined;
+    try {
+      const { db } = await import("@/lib/db");
+      const order = await db.order.create({
+        data: { name, phone, address, quantity, shipping, total },
+      });
+      orderId = order.id.toString();
+    } catch {
+      // SQLite not available on Vercel — that's fine, Google Sheets is the primary store
+      console.log("Local DB save skipped (not available in serverless environment)");
+      orderId = `GS-${Date.now()}`;
+    }
 
     return NextResponse.json({
       success: true,
-      orderId: order.id,
+      orderId,
       message: "অর্ডার সফলভাবে সম্পন্ন হয়েছে!",
     });
   } catch (error) {
