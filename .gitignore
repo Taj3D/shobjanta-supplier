@@ -80,3 +80,5 @@ Caddyfile
 
 # Examples (local dev only)
 /examples/
+.vercel
+
