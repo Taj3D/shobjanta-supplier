@@ -36,12 +36,16 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/product-jar.webp",
-        width: 800,
-        height: 1060,
-        alt: "পাকিস্তানি বাসমতি চাল জার",
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "সবজান্তা সাপ্লাইয়ার | পাকিস্তানি বাসমতি চাল ৩ কেজি মাত্র ৳১০৫০",
       },
     ],
+    twitter: {
+      card: "summary_large_image",
+      images: ["/images/og-image.jpg"],
+    },
   },
 };
 
@@ -53,8 +57,10 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <head>
-        {/* Facebook Pixel — lazy loaded on user interaction to avoid blocking */}
-        <Script id="fb-pixel" strategy="lazyOnload">
+        {/* Preconnect to Facebook for faster Pixel loading */}
+        <link rel="preconnect" href="https://connect.facebook.net" />
+        {/* Facebook Pixel — afterInteractive for reliable PageView tracking */}
+        <Script id="fb-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?

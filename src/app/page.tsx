@@ -335,9 +335,9 @@ export default function Home() {
             <div className="relative h-9 sm:h-11">
               <img src={LOGO_IMG} alt="সবজান্তা সাপ্লাইয়ার" className="h-full w-auto object-contain" draggable={false} />
             </div>
-            <div className="hidden sm:block">
-              <h1 className="text-base sm:text-lg font-bold text-[#1e293b] leading-tight">সবজান্তা সাপ্লাইয়ার</h1>
-              <p className="text-[10px] sm:text-xs text-[#64748b]">FinTaxEdgeTV</p>
+            <div>
+              <h1 className="text-sm sm:text-lg font-bold text-[#1e293b] leading-tight">সবজান্তা সাপ্লাইয়ার</h1>
+              <p className="text-[9px] sm:text-xs text-[#64748b]">FinTaxEdgeTV</p>
             </div>
           </a>
           <div className="flex items-center gap-2 bg-[#dcfce7] text-[#16a34a] px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold">
