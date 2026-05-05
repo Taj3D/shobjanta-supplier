@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     "বাসমতি রাইস",
   ],
   icons: {
-    icon: "https://i.ibb.co/W4RwVdqy/image-cabe2751.png",
+    icon: "/images/logo.png",
   },
   openGraph: {
     title: "সবজান্তা সাপ্লাইয়ার | পাকিস্তানি বাসমতি চাল",
@@ -35,9 +35,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "https://i.ibb.co/Y4WjrpLD/Whats-App-Image-2026-04-30-at-23-53-16.jpg",
+        url: "/images/product-jar.webp",
         width: 800,
-        height: 800,
+        height: 1060,
         alt: "পাকিস্তানি বাসমতি চাল জার",
       },
     ],

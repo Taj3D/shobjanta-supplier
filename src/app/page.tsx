@@ -20,9 +20,9 @@ const WA_NUMBER = '8801973135466';
 const FB_PAGE = 'https://www.facebook.com/ShobjantaSupplier';
 const WEBSITE_URL = 'https://shobjanta-supplier.vercel.app';
 
-const PRODUCT_IMG = 'https://i.ibb.co/Y4WjrpLD/Whats-App-Image-2026-04-30-at-23-53-16.jpg';
-const LOGO_IMG = 'https://i.ibb.co/W4RwVdqy/image-cabe2751.png';
-const RICE_GRAINS_IMG = 'https://i.ibb.co/DH8SrkHS/Gemini-Generated-Image-xk3ejaxk3ejaxk3e.png';
+const PRODUCT_IMG = '/images/product-jar.webp';
+const LOGO_IMG = '/images/logo.png';
+const RICE_GRAINS_IMG = '/images/rice-grains.webp';
 
 // ── Reviews ──
 const reviews = [
