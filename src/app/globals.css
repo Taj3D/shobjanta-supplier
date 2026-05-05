@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: #fffaf5;
+  --color-foreground: #1e293b;
+  --font-sans: 'Hind Siliguri', sans-serif;
+  --color-primary: #16a34a;
+  --color-primary-foreground: #ffffff;
+  --color-accent: #f59e0b;
+  --color-accent-foreground: #1e293b;
+  --color-danger: #dc2626;
+  --color-danger-foreground: #ffffff;
+  --color-muted: #f1f5f9;
+  --color-muted-foreground: #64748b;
+  --color-card: #ffffff;
+  --color-card-foreground: #1e293b;
+  --color-border: #e2e8f0;
+  --color-input: #e2e8f0;
+  --color-ring: #16a34a;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Hind Siliguri', sans-serif;
+  background-color: #fffaf5;
+  color: #1e293b;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #94a3b8;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
+}
+
+/* Countdown timer pulse — uses box-shadow to avoid layout shift */
+@keyframes pulse-urgency {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
+  50% { box-shadow: 0 0 20px 4px rgba(255, 255, 255, 0.25); }
+}
+
+.countdown-pulse {
+  animation: pulse-urgency 2s ease-in-out infinite;
+}
+
+/* Floating button animation */
+@keyframes float-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.float-bounce {
+  animation: float-bounce 2s ease-in-out infinite;
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Star rating color */
+.star-gold {
+  color: #f59e0b;
+}
