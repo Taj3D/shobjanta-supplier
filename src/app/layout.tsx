@@ -6,7 +6,7 @@ import "./globals.css";
 const hindSiliguri = Hind_Siliguri({
   variable: "--font-hind-siliguri",
   subsets: ["bengali", "latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -52,8 +52,8 @@ export default function RootLayout({
   return (
     <html lang="bn">
       <head>
-        {/* Facebook Pixel */}
-        <Script id="fb-pixel" strategy="afterInteractive">
+        {/* Facebook Pixel — lazy loaded on user interaction to avoid blocking */}
+        <Script id="fb-pixel" strategy="lazyOnload">
           {`
             !function(f,b,e,v,n,t,s)
             {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -67,15 +67,6 @@ export default function RootLayout({
             fbq('track', 'PageView');
           `}
         </Script>
-        <noscript>
-          <img
-            height="1"
-            width="1"
-            style={{ display: "none" }}
-            src="https://www.facebook.com/tr?id=918051034554872&ev=PageView&noscript=1"
-            alt=""
-          />
-        </noscript>
       </head>
       <body className={`${hindSiliguri.variable} antialiased`} suppressHydrationWarning>
         {children}

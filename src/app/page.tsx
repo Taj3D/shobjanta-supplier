@@ -367,9 +367,9 @@ export default function Home() {
         </div>
 
         {/* ═══════ 4. HERO SECTION ═══════ */}
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden bg-gradient-to-b from-[#f0fdf4]/50 to-transparent">
           <div className="absolute inset-0 opacity-10">
-            <img src={RICE_GRAINS_IMG} alt="" className="absolute inset-0 w-full h-full object-cover" aria-hidden="true" draggable={false} />
+            <img src={RICE_GRAINS_IMG} alt="" className="absolute inset-0 w-full h-full object-cover" aria-hidden="true" draggable={false} loading="lazy" decoding="async" />
           </div>
           <div className="relative max-w-5xl mx-auto px-4 py-8 sm:py-12 text-center">
             <div className="inline-block bg-[#fef3c7] text-[#92400e] px-4 py-1.5 rounded-full text-xs sm:text-sm font-semibold mb-4">
